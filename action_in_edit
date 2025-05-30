@@ -1,10 +1,10 @@
 import javafx.scene.shape.Shape;
 
-public class MainCommand {
-    public interface Command {
+public class MainAction {
+    public interface Action {
     }
 
-    public static class DrawCommand implements Command {
+    public static class DrawAction implements Action {
         private double startX;
         private double startY;
         private double endX;
@@ -13,7 +13,7 @@ public class MainCommand {
         private double lineWidth;
         private Class<? extends Shape> shapeClass;
 
-        public DrawCommand(double startX, double startY, double endX, double endY, String color, double lineWidth, Class<? extends Shape> shapeClass) {
+        public DrawAction(double startX, double startY, double endX, double endY, String color, double lineWidth, Class<? extends Shape> shapeClass) {
             this.startX = startX;
             this.startY = startY;
             this.endX = endX;
@@ -52,14 +52,14 @@ public class MainCommand {
         }
     }
 
-    public static class TextCommand implements Command {
+    public static class TextAction implements Action {
         private double x;
         private double y;
         private String text;
         private String color;
         private double lineWidth;
 
-        public TextCommand(double x, double y, String text, String color, double lineWidth) {
+        public TextAction(double x, double y, String text, String color, double lineWidth) {
             this.x = x;
             this.y = y;
             this.text = text;
@@ -88,12 +88,12 @@ public class MainCommand {
         }
     }
 
-    public static class UndoCommand implements Command {
+    public static class UndoAction implements Action {
     }
 
-    public static class UndoAllCommand implements Command {
+    public static class UndoAllAction implements Action {
     }
 
-    public static class RedoCommand implements Command {
+    public static class RedoAction implements Action {
     }
 }
