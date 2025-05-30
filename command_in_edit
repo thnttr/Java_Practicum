@@ -1,0 +1,99 @@
+import javafx.scene.shape.Shape;
+
+public class MainCommand {
+    public interface Command {
+    }
+
+    public static class DrawCommand implements Command {
+        private double startX;
+        private double startY;
+        private double endX;
+        private double endY;
+        private String color;
+        private double lineWidth;
+        private Class<? extends Shape> shapeClass;
+
+        public DrawCommand(double startX, double startY, double endX, double endY, String color, double lineWidth, Class<? extends Shape> shapeClass) {
+            this.startX = startX;
+            this.startY = startY;
+            this.endX = endX;
+            this.endY = endY;
+            this.color = color;
+            this.lineWidth = lineWidth;
+            this.shapeClass = shapeClass;
+        }
+
+        public double getStartX() {
+            return startX;
+        }
+
+        public double getStartY() {
+            return startY;
+        }
+
+        public double getEndX() {
+            return endX;
+        }
+
+        public double getEndY() {
+            return endY;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public double getLineWidth() {
+            return lineWidth;
+        }
+
+        public Class<? extends Shape> getShapeClass() {
+            return shapeClass;
+        }
+    }
+
+    public static class TextCommand implements Command {
+        private double x;
+        private double y;
+        private String text;
+        private String color;
+        private double lineWidth;
+
+        public TextCommand(double x, double y, String text, String color, double lineWidth) {
+            this.x = x;
+            this.y = y;
+            this.text = text;
+            this.color = color;
+            this.lineWidth = lineWidth;
+        }
+
+        public double getX() {
+            return x;
+        }
+
+        public double getY() {
+            return y;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public double getLineWidth() {
+            return lineWidth;
+        }
+    }
+
+    public static class UndoCommand implements Command {
+    }
+
+    public static class UndoAllCommand implements Command {
+    }
+
+    public static class RedoCommand implements Command {
+    }
+}
